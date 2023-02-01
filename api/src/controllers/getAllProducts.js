@@ -1,4 +1,4 @@
-const { allProducts } = require("../utils")
+const { allProducts } = require("../utils/allProductsUtil")
 
 const getAllProduct = async (req, res) => {
     try {
