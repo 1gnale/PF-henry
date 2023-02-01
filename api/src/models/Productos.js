@@ -36,7 +36,7 @@ module.exports = (sequelize) => {
     precio: {
       type: DataTypes.STRING,
       allowNull: false,
-    }, 
+    },  
     stockActual: {
       type: DataTypes.STRING,
       allowNull: false,
