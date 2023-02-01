@@ -8,7 +8,7 @@ module.exports = {
             })
             return productsBDD
         }
-        catch { throw Error ("Fallo la coneccion con la base de datos o la api")}
+        catch { throw Error ("Hubo un error en la coneccion con la base de datos")}
     } 
 }  
        
