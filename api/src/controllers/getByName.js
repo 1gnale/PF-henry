@@ -1,6 +1,6 @@
 const { Products } = require("../../db");
 
-const getByName = async (req, res) => {
+const getByName = async (req, res, next) => {
     const name = req.match.params.name
         if(name){
             try{
@@ -13,8 +13,7 @@ const getByName = async (req, res) => {
             return res.status(400).json('Hubo un error en la coneccion de la base de datos')
             } 
         }else{
-            return res.status(200).json('No se enviaron datos')
-        }
+            next()
 }
 
 module.exports={
