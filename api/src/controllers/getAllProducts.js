@@ -5,7 +5,7 @@ const getAllProduct = async (req, res) => {
         let results = await allProducts()
         res.status(200).json(results)
     } catch (error) {
-        res.status(400).json({ error: error.message })
+        res.status(400).json({ error: "db vacia" })
     }
 }
 
