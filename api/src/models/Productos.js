@@ -21,26 +21,23 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    life_span: {
-      type: DataTypes.STRING
-    },
     img: {
       type: DataTypes.STRING,
       defaultValue: 'https://i.pinimg.com/originals/37/2c/db/372cdbb7af08ad27524ef53c53e1ba8d.jpg',
     }, 
-    descripcion:{
+    description:{
       type: DataTypes.STRING,
       allowNull: false,
     },    
-    precio: {
+    price: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    stockActual: {
+    stock: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    oferta: {
+    offert: {
       type: DataTypes.STRING,
       allowNull: false,
     } 
