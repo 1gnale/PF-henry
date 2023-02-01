@@ -4,6 +4,11 @@
 
 Hola mundo! Acá imagino que va la intro y el cómo vender el proyecto
 
+## Scripts útiles
+
+ > npm install
+ > npm start
+
 ## Links de guía
 
 __Back end__
