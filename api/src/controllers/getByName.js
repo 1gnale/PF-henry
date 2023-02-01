@@ -6,9 +6,11 @@ module.exports = {
             const productsBDD =  await Products.findAll({
                 where:{name: name}
             })
-            return productsBDD
+            return res.status(200).json(productsBDD)
         }
-        catch { throw Error ("Hubo un error en la coneccion con la base de datos")}
+        catch { 
+            return res.status(400).json('Hubo un error en la coneccion de la base de datos')
+        }
     } 
 }  
        
