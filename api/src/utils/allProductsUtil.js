@@ -1,7 +1,7 @@
-const { Product, Category } = require("../db")
+const { Products, Category } = require("../db")
 
 const allProducts = async () => {
-    const dbProducts = await Product.findAll({
+    const dbProducts = await Products.findAll({
         include:{
             model: Category,
             attributes: ["name"],
@@ -10,7 +10,7 @@ const allProducts = async () => {
             }
         }
     })
-
+    
     const dbProductsClean = dbProducts.map((e) => {
         return{
             id: e.id,
@@ -18,10 +18,10 @@ const allProducts = async () => {
             price: e.price,
             stock: e.stock,
             description: e.description,
-            imageURL: e.imageURL,
+            img: e.img,
             weight: e.weight,
             height: e.height,
-            offer: e.offer
+            offert: e.offert
         }
     })
 
