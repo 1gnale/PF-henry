@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 
 
 module.exports = (sequelize) => {
-  sequelize.define('Productos', {
+  sequelize.define('Products', {
     id: {
       primaryKey: true,
       type: DataTypes.UUID,
@@ -22,8 +22,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     img: {
-      type: DataTypes.STRING,
-      defaultValue: 'https://i.pinimg.com/originals/37/2c/db/372cdbb7af08ad27524ef53c53e1ba8d.jpg',
+      type: DataTypes.TEXT,
     }, 
     description:{
       type: DataTypes.STRING,
