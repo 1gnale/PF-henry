@@ -27,7 +27,7 @@ const postProduct = async(req, res) => {
         }
 }
 
-mosule.export = {
+module.export = {
     postProduct
 }
 
