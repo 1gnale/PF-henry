@@ -10,6 +10,7 @@ const getById = async (req, res) => {
         res.status(404).send('Product ID not found')
     } catch (error) {
         console.error(error)
+        res.status(404).send('Error getting product ID')
     }
 }
 
