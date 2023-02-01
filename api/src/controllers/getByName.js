@@ -1,7 +1,7 @@
-const { Products } = require("../../db");
+const { Products } = require("../db.js");
 
 const getByName = async (req, res, next) => {
-    const name = req.match.params.name
+    const name = req.params
         if(name){
             try{
             const productsBDD =  await Products.findAll({
@@ -14,9 +14,10 @@ const getByName = async (req, res, next) => {
             } 
         }else{
             next()
+        }
 }
 
-module.exports={
+    module.exports={
     getByName
 }
         
