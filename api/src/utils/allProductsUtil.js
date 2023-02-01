@@ -11,6 +11,7 @@ const allProducts = async () => {
         }
     })
 
+    
     const dbProductsClean = dbProducts.map((e) => {
         return{
             id: e.id,
