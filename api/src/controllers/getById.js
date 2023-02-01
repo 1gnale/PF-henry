@@ -1,4 +1,4 @@
-const {allProducts} = require('../utils')
+const {allProducts} = require('../utils/allProductsUtil')
 
 const getById = async (req, res) => {
     try {
