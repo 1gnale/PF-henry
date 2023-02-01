@@ -44,7 +44,7 @@ module.exports = (sequelize) => {
     oferta: {
       type: DataTypes.STRING,
       allowNull: false,
-    }
+    } 
   },
   {
     timestamps: false,
