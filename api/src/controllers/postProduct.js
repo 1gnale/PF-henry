@@ -27,7 +27,7 @@ const postProduct = async(req, res) => {
         }
 }
 
-module.export = {
+module.exports = {
     postProduct
 }
 
