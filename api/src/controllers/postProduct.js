@@ -15,8 +15,8 @@ const postProduct = async (req, res) => {
             stock: stock,
             offert: offert
         })
-        newProduct.addCategories(category)
-        return res.status(200).json("New product created correcly")
+        await newProduct.addCategories(category)
+        return res.status(201).json("New product created correctly")
     }
     catch (error){
         return res.status(400).json({error: error.message})
