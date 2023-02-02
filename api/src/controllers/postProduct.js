@@ -15,15 +15,11 @@ const postProduct = async (req, res) => {
             stock: stock,
             offert: offert
         })
-        const newCategory = await Category.findOrCreate({
-        where: {
-            name: category
-        }})
-        newProduct.addCategory(newCategory)
+        newProduct.addCategories(category)
         return res.status(200).json("New product created correcly")
     }
-    catch{
-        return res.status(400).json("Product was not created")
+    catch (error){
+        return res.status(400).json({error: error.message})
     }
 }
 
