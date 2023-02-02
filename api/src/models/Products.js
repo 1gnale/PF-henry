@@ -6,13 +6,16 @@ module.exports = (sequelize) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      set: function(val) {
+        this.setDataValue('name', val.charAt(0).toUpperCase() + val.slice(1).toLowerCase());
+      }
     },
     height: {
-      type: DataTypes.STRING,
+      type: DataTypes.NUMBER,
       allowNull: false,
     },
     weight: {
-      type: DataTypes.STRING,
+      type: DataTypes.NUMBER,
       allowNull: false,
     },
     img: {
@@ -23,16 +26,20 @@ module.exports = (sequelize) => {
       allowNull: false,
     },    
     price: {
-      type: DataTypes.STRING,
+      type: DataTypes.NUMBER,
       allowNull: false,
     },
     stock: {
-      type: DataTypes.STRING,
+      type: DataTypes.NUMBER,
       allowNull: false,
     },
     offert: {
-      type: DataTypes.STRING,
+      type: DataTypes.NUMBER,
       allowNull: false,
+    },
+    activeProduct: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
     } 
   },
   {
