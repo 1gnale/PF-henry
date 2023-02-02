@@ -21,7 +21,8 @@ const allProducts = async () => {
             img: e.img,
             weight: e.weight,
             height: e.height,
-            offert: e.offert
+            offert: e.offert,
+            category: e.Categories.map(e => e.name)
         }
     })
 

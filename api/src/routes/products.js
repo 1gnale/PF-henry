@@ -8,7 +8,7 @@ const productsRouter = Router();
 
 
 productsRouter.get('/', getAllProduct)
-// productsRouter.get('/:id', getById)
+productsRouter.get('/:id', getById)
 productsRouter.post('/', validatePostProduct, postProduct)
 
 module.exports = productsRouter;
