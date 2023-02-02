@@ -7,7 +7,7 @@ const {postProduct} = require("../controllers/postProduct")
 const productsRouter = Router();
 
 
-productsRouter.get('/', getAllProduct)
+productsRouter.get('/',getByName, getAllProduct)
 productsRouter.get('/:id', getById)
 productsRouter.post('/', validatePostProduct, postProduct)
 
