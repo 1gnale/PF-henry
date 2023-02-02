@@ -2,11 +2,11 @@ const {allProducts} = require('../utils/allProductsUtil')
 
 const getById = async (req, res) => {
     try {
-        const {idProduct} = req.params
+        const idProduct = req.params.id
         const allProd = await allProducts()
-        const id = await allProd.filter(e => e.id == idProduct)
-        await id.length > 0 ?
-        res.status(200).json(id) :
+        const product = await allProd.find((e) => e.id.toString() == idProduct)
+        await product ?
+        res.status(200).json(product) :
         res.status(404).send('Product ID not found')
     } catch (error) {
         console.error(error)
