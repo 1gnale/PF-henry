@@ -11,11 +11,11 @@ module.exports = (sequelize) => {
       }
     },
     height: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     weight: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     img: {
@@ -26,15 +26,15 @@ module.exports = (sequelize) => {
       allowNull: false,
     },    
     price: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     stock: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     offert: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     activeProduct: {
