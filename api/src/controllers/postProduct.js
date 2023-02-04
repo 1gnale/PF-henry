@@ -15,7 +15,14 @@ const postProduct = async (req, res) => {
             stock: stock,
             offert: offert
         })
-        await newProduct.addCategories(category)
+        const dbCategories = await Promise.all(category.map(c => 
+            Category.findOrCreate({
+                where: {
+                    name: c
+                }
+            })))
+        const tempObj = dbCategories.map(([temp, created]) => temp)
+        await newProduct.addCategory(tempObj)
         return res.status(201).json("New product created correctly")
     }
     catch (error){
