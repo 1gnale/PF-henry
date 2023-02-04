@@ -35,7 +35,6 @@ module.exports = (sequelize) => {
     },
     offert: {
       type: DataTypes.INTEGER,
-      allowNull: false,
     },
     activeProduct: {
       type: DataTypes.BOOLEAN,
