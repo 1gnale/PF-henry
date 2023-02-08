@@ -1,11 +1,11 @@
-const { Products, Category } = require("../../db")
+const { Product, Category } = require("../../db")
 
 const postProduct = async (req, res) => {
 
     try {
         const { name, height, weight, img, description, price, stock, offert, category } = req.body;
 
-        const newProduct = await Products.create({
+        const newProduct = await Product.create({
             name: name,
             height: height,
             weight: weight,
