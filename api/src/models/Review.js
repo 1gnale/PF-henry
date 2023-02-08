@@ -1,19 +1,23 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-    sequelize.define('review', {
+    sequelize.define('Review', {
         text: {
             type: DataTypes.TEXT,
             allowNull: false
         },
         rating: {
-            type: DataTypes.ENUM(),
+            type: DataTypes.INTEGER,
+            validate: {
+                min: 1,
+                max: 5
+            },
             allowNull: false
         },
         productId: {
             type: DataTypes.INTEGER,
             references: {
-              model: 'Products',
+              model: 'Product',
               key: 'id'
             },
             // allowNull: false,
@@ -26,5 +30,8 @@ module.exports = (sequelize) => {
               key: 'id'
             }
         }
-    })
+    }, {
+        freezeTableName: true
+    }
+    )
 }

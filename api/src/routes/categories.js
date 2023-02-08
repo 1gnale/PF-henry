@@ -1,6 +1,6 @@
 const { Router } = require('express');
-const { getAllCategories } = require('../controllers/getAllCategories')
-const { postCategory } = require('../controllers/postCategory');
+const { getAllCategories } = require('../controllers/Categories/getAllCategories')
+const { postCategory } = require('../controllers/Categories/postCategory');
 const { validatePostCategory } = require('../middlewares/validatePostCategory');
 const router = Router();
 

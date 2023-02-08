@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-    sequelize.define('user', {
+    sequelize.define('User', {
         email: {
             type: DataTypes.STRING,
             unique: true,
@@ -21,7 +21,8 @@ module.exports = (sequelize) => {
             allowNull: false
         },
         picture: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            defaultValue: 'https://i.ibb.co/2hFK2bh/favicon.png'
         },
         birthday: {
             type: DataTypes.DATEONLY
@@ -31,6 +32,7 @@ module.exports = (sequelize) => {
         }
     },
     {
+        freezeTableName: true,
         timestamps: false,
         createdAt: false,
         updatedAt: false

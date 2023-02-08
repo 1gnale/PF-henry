@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-    sequelize.define('Favorites', {
+    sequelize.define('Favorite', {
       userId: {
         type: DataTypes.INTEGER,
         references: {
@@ -14,7 +14,7 @@ module.exports = (sequelize) => {
       productId: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'Products',
+          model: 'Product',
           key: 'id'
         },
         onUpdate: 'cascade',
@@ -22,6 +22,7 @@ module.exports = (sequelize) => {
       }
     },
     {
+      freezeTableName: true,
       timestamps: false,
       createdAt: false,
       updatedAt: false
