@@ -1,7 +1,7 @@
-const { Products, Category } = require("../db")
+const { Product, Category } = require("../db")
 
 const allProducts = async () => {
-    const dbProducts = await Products.findAll({
+    const dbProducts = await Product.findAll({
         include:{
             model: Category,
             attributes: ["name"],

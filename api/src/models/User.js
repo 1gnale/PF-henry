@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-    sequelize.define('user', {
+    sequelize.define('User', {
         email: {
             type: DataTypes.STRING,
             unique: true,
@@ -21,16 +21,19 @@ module.exports = (sequelize) => {
             allowNull: false
         },
         picture: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            defaultValue: 'https://i.ibb.co/2hFK2bh/favicon.png'
         },
         birthday: {
             type: DataTypes.DATEONLY
         },
-        role: {
-            type: DataTypes.ENUM('client', 'admin')
+        isAdmin: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
         }
     },
     {
+        freezeTableName: true,
         timestamps: false,
         createdAt: false,
         updatedAt: false
