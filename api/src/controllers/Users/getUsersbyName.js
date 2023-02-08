@@ -5,7 +5,6 @@ const getByName = async (req, res, next) => {
         if(fullName){
             try{
             const usersDB =  await User.findAll() 
-            console.log(usersDB)
             const results = usersDB.filter(e => e.fullName.toLowerCase().includes(fullName.toLowerCase()))
             if (results.length > 0) return res.status(200).json(results)
             else return res.status(404).json("No hay productos con ese nombre")

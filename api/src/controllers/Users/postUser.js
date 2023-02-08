@@ -17,7 +17,7 @@ const postUser = async (req, res) => {
         return res.status(201).json("New user created correctly")
     }
     catch (error){
-        return res.status(400).json(console.log(error))
+        return res.status(400).json({msg: error})
     }
 }
 
