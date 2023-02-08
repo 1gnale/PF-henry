@@ -27,8 +27,9 @@ module.exports = (sequelize) => {
         birthday: {
             type: DataTypes.DATEONLY
         },
-        role: {
-            type: DataTypes.ENUM('client', 'admin')
+        isAdmin: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
         }
     },
     {
