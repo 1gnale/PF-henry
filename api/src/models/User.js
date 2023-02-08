@@ -23,6 +23,15 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             defaultValue: 'https://i.ibb.co/2hFK2bh/favicon.png'
         },
+        addressLineOne: {
+            type: DataTypes.STRING
+        },
+        addressLineTwo: {
+            type: DataTypes.STRING
+        },
+        telephone: {
+            type: DataTypes.STRING
+        },
         birthday: {
             type: DataTypes.DATEONLY
         },
