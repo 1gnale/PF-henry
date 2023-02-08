@@ -8,7 +8,7 @@ const allUsers = async () => {
             user_id: e.user_id,
             email: e.email,
             fullName: e.fullName,
-            nickname: e.nickname,
+            username: e.username,
             picture: e.picture,
             birthday: e.birthday,
             role: e.role,
