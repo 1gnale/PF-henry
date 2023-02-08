@@ -10,8 +10,7 @@ module.exports = (sequelize) => {
             }
         },
         fullName: {
-            type: DataTypes.STRING,
-            allowNull: false
+            type: DataTypes.STRING
         },
         username: {
             type: DataTypes.STRING
