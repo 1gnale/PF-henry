@@ -1,9 +1,9 @@
 const { Router } = require('express');
 const { getAllProduct } = require('../controllers/Products/getAllProducts');
 const { getByName } = require('../controllers/Products/getByName');
-const { getProductById } = require('../controllers/Products/getById')
-const {validatePostProduct} = require ("../middlewares/validatePostProduct")
-const {postProduct} = require("../controllers/Products/postProduct")
+const { getProductById } = require('../controllers/Products/getProductById')
+const { validatePostProduct } = require ("../middlewares/validatePostProduct")
+const { postProduct } = require("../controllers/Products/postProduct")
 const productsRouter = Router();
 
 

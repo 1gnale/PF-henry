@@ -1,6 +1,4 @@
 const { User, Favorite, Product } = require("../../db");
-const { getUserById } = require("../Users/getUsersById");
-const { getProductById } = require("../Products/getById")
 
 const postFavorite = async(req, res) => {
    try { 
