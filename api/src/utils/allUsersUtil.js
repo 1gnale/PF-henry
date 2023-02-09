@@ -11,6 +11,9 @@ const allUsers = async () => {
             username: e.username,
             picture: e.picture,
             birthday: e.birthday,
+            addressLineOne: e.addressLineOne,
+            addressLineTwo: e.addressLineTwo,
+            telephone: e.telephone,
             role: e.role,
         }
     })
