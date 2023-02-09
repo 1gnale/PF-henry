@@ -1,6 +1,6 @@
 const { allProducts } = require('../../utils/allProductsUtil')
 
-const getById = async (req, res) => {
+const getProductById = async (req, res) => {
     try {
         const idProduct = req.params.id
         const allProd = await allProducts()
@@ -15,5 +15,5 @@ const getById = async (req, res) => {
 }
 
 module.exports = {
-    getById
+    getProductById
 }

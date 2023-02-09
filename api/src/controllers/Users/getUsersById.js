@@ -1,6 +1,6 @@
 const { allUsers } = require("../../utils/allUsersUtil")
 
-const getById = async (req, res) => {
+const getUserById = async (req, res) => {
     try {
         const idUser = req.params.id
         const allUser = await allUsers()
@@ -15,5 +15,5 @@ const getById = async (req, res) => {
 }
 
 module.exports = {
-    getById
+    getUserById
 }
