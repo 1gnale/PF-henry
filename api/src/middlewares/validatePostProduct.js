@@ -9,7 +9,6 @@ const validatePostProduct = (req, res, next) => {
     if (!description) return res.status(400).send(`Description value is required`);
     if (!price) return res.status(400).send(`Price value is required`);
     if (!stock) return res.status(400).send(`Stock value is required`);
-    if (!offert) return res.status(400).send(`Offert value is required`);
     if (!category) return res.status(400).send(`Category value is required`)
     next()
 }
