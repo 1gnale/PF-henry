@@ -1,14 +1,28 @@
 const { UserFavorites } = require("../../db");
+const { allProducts } = require("../../utils/allProductsUtil");
+const { allUsers } = require("../../utils/allUsersUtil");
 
 const getUserFavorites = async (req, res) => {
-    const { userId } = req.params;
+    const { email } = req.params;
 
     try {
-        const allUserFavorites = await UserFavorites.findAll({where: {userId: userId}})
-        const UserFavoriteProducts = allUserFavorites.map(f => f.productId)
-        res.status(200).json(UserFavoriteProducts)
+        const users = await allUsers()
+        const filtredUser = users.filter(e =>  e.email.includes(email) )
+        const allUserFavorites = await UserFavorites.findAll({where: {userId: Number(filtredUser[0].userId)}})
+        const userFavoriteProducts = allUserFavorites.map(f => f.productId)
+        const products = await allProducts()
+        const filtredProducts = () =>{
+            const finalFavorite = []
+            for(let i = 0; i < products.length; i++){
+                for(let j = 0; j < userFavoriteProducts.length; j++){
+                    if(products[i].id == userFavoriteProducts[j]) finalFavorite.push(products[i])
+                }
+            }
+            return finalFavorite
+        }
+        res.status(200).json(filtredProducts())
     } catch (error) {
-        res.status(400).json({ error: "este usuario no tiene productos favoritos" })
+        res.status(400).json({ message: error.message })
     }
 };
 
