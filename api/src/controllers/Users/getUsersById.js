@@ -4,7 +4,7 @@ const getUserById = async (req, res) => {
     try {
         const idUser = req.params.id
         const allUser = await allUsers()
-        const user = await allUser.find((e) => e.user_id.toString() == idUser)
+        const user = await allUser.find((e) => e.id.toString() == idUser)
         await user ?
         res.status(200).json(user) :
         res.status(404).send('User ID not found')

@@ -4,13 +4,13 @@ const { userToUpdateUtil } = require("../../utils/userToUpdateUtil")
 const updateUser = async (req, res) => {
 
     const {
-        user_id, email, fullName, username, picture, birthday, addressLineOne, addressLineTwo, telephone
+        email, fullName, username, picture, birthday, addressLineOne, addressLineTwo, telephone
     } = req.body
 
-    const userToUpdate = await User.findOne({where: {user_id: user_id}}) 
+    const userToUpdate = await User.findOne({where: {email: email}}) 
     
     userToUpdate ?
-    updatedDetail = userToUpdateUtil(userToUpdate, user_id, email, fullName, username, picture, birthday, addressLineOne, addressLineTwo, telephone) :
+    updatedDetail = userToUpdateUtil(userToUpdate, email, fullName, username, picture, birthday, addressLineOne, addressLineTwo, telephone) :
     res.status(404).json("User not found :(")
 
     try {
