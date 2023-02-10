@@ -7,6 +7,10 @@ module.exports = (sequelize) => {
             primaryKey: true,
             autoIncrement: true
         },
+        payPalOrderId: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         userId: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -24,9 +28,12 @@ module.exports = (sequelize) => {
             defaultValue: DataTypes.NOW
         },
         status: {
-            type: DataTypes.ENUM,
-            values: ['pending', 'completed', 'cancelled'],
-            defaultValue: 'pending'
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: 'pending',
+            validate: {
+                isIn: [['pending', 'completed', 'cancelled']]
+            }
         }
         }, {
           timestamps: false,
