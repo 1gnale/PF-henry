@@ -1,16 +1,16 @@
-const { UserFavorites } = require("../../db");
+const { UserFavorites, User } = require("../../db");
 const { allUsers } = require("../../utils/allUsersUtil");
 
 const postFavorite = async (req, res) => {
     try {
         const { email, productId } = req.body
 
-        const users = await allUsers()
-        const filtredUser = users.filter(e =>  e.email.includes(email) )
+        const filtredUser = await User.findOne({where: {email: email}})
+        console.log(filtredUser)
         const dbFavorite = await UserFavorites.findOrCreate({
             where :{
-                userId: Number(filtredUser[0].userId),
-                productId: Number(productId)}
+                userId: filtredUser.dataValues.id,
+                productId: productId}
         })
         return res.status(200).json("Favorite added to DB")
     } catch (error) {
