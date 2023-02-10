@@ -6,7 +6,6 @@ const postUser = async (req, res) => {
         const { user_id, email, fullName, username, picture, birthday, role } = req.body;
 
         const newUser = await User.create({
-            user_id: user_id,
             email: email,
             fullName: fullName,
             username: username,

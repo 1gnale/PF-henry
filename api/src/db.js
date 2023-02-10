@@ -44,7 +44,7 @@ User.belongsToMany(Product, {
 });
 Product.belongsToMany(User, {
   through: 'UserFavorites',
-  as: 'favoritedBy',
+  as: 'favorites',
   foreignKey: 'productId'
 });
 
