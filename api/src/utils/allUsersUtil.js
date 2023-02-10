@@ -5,7 +5,7 @@ const allUsers = async () => {
     
     const dbUsersClean = dbUsers.map((e) => {
         return{
-            userId: e.userId,
+            id: e.id,
             email: e.email,
             fullName: e.fullName,
             username: e.username,

@@ -3,16 +3,17 @@ const { User } = require("../../db")
 const postUser = async (req, res) => {
 
     try {
-        const { user_id, email, fullName, username, picture, birthday, role } = req.body;
-
-        const newUser = await User.create({
-            email: email,
-            fullName: fullName,
-            username: username,
-            picture: picture,
-            birthday: birthday,
-            role: role,
-        })
+        const { email, fullName, username, picture, birthday, isAdmin } = req.body;
+        
+            const newAdmin = await User.create({
+                email: email,
+                fullName: fullName,
+                username: username,
+                picture: picture,
+                birthday: birthday,
+                isAdmin: isAdmin
+            })
+        
         return res.status(201).json("New user created correctly")
     }
     catch (error){
