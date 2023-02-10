@@ -4,7 +4,7 @@ const { postFavorite } = require("../controllers/Favorites/postFavorite");
 
 const favoriteRouter = Router();
 
-favoriteRouter.get("/:userId", getUserFavorites);
+favoriteRouter.get("/:email", getUserFavorites);
 favoriteRouter.post("/", postFavorite)
 
 module.exports=favoriteRouter
