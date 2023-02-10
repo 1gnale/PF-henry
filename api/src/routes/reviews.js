@@ -7,7 +7,7 @@ const { validatePostReview } = require("../middlewares/validatePostReview")
 const reviewRouter = Router();
 
 reviewRouter.get("/", getProductReviews);
-reviewRouter.get("/:userId", getUserReviews);
+reviewRouter.get("/:email", getUserReviews);
 reviewRouter.post("/", validatePostReview, postReview);
 
 

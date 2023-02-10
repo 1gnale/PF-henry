@@ -1,4 +1,4 @@
-const { UserFavorites } = require("../../db");
+const { UserFavorites, User } = require("../../db");
 const { allProducts } = require("../../utils/allProductsUtil");
 const { allUsers } = require("../../utils/allUsersUtil");
 
@@ -6,9 +6,10 @@ const getUserFavorites = async (req, res) => {
     const { email } = req.params;
 
     try {
-        const users = await allUsers()
-        const filtredUser = users.filter(e =>  e.email.includes(email) )
-        const allUserFavorites = await UserFavorites.findAll({where: {userId: Number(filtredUser[0].userId)}})
+       
+        const filtredUser = await User.findOne({where: {email: email}})
+        const allUserFavorites = await UserFavorites.findAll({where: {userId: filtredUser.dataValues.id}})
+        console.log(allUserFavorites)
         const userFavoriteProducts = allUserFavorites.map(f => f.productId)
         const products = await allProducts()
         const filtredProducts = () =>{
