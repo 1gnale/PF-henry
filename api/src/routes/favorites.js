@@ -7,6 +7,6 @@ const favoriteRouter = Router();
 
 favoriteRouter.get("/:email", getUserFavorites);
 favoriteRouter.post("/", postFavorite)
-favoriteRouter.delete("/:productId", deleteFavorite)
+favoriteRouter.delete("/", deleteFavorite)
 
 module.exports=favoriteRouter
