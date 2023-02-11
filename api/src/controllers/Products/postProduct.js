@@ -15,7 +15,7 @@ const postProduct = async (req, res) => {
             stock: stock,
             offert: offert
         })
-        const dbCategories = await Promise.all(category.map(c => 
+        const dbCategories = await Promise.all(category?.map(c => 
             Category.findOrCreate({
                 where: {
                     name: c
