@@ -9,7 +9,6 @@ const getUserFavorites = async (req, res) => {
        
         const filtredUser = await User.findOne({where: {email: email}})
         const allUserFavorites = await UserFavorites.findAll({where: {userId: filtredUser.dataValues.id}})
-        console.log(allUserFavorites)
         const userFavoriteProducts = allUserFavorites.map(f => f.productId)
         const products = await allProducts()
         const filtredProducts = () =>{
