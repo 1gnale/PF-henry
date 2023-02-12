@@ -2,8 +2,8 @@ const { Review, User } = require("../../db");
 
 const postReview = async(req, res) => {
     try {
-        const { productId } = req.query;
-        const { text, rating, email } = req.body
+    
+        const { text, rating, email, productId } = req.body
 
         const user = await User.findOne({where: {email: email}})
         console.log(user)
