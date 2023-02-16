@@ -14,7 +14,7 @@ const allUsers = async () => {
             addressLineOne: e.addressLineOne,
             addressLineTwo: e.addressLineTwo,
             telephone: e.telephone,
-            role: e.role,
+            isAdmin: e.isAdmin,
         }
     })
 

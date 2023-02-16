@@ -7,6 +7,11 @@ const favorites = require("./favorites");
 const reviews = require("./reviews");
 const orders = require("./orders");
 const blogs = require("./blogs");
+const cors = require("cors");
+
+router.options("*", cors({ origin: "*", optionsSuccessStatus: 200 }));
+
+router.use(cors({ origin: "*", optionsSuccessStatus: 200 }));
 
 router.use("/categories", categories);
 router.use("/products", products);
