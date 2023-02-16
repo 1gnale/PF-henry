@@ -1,10 +1,10 @@
 
-const userToUpdateUtil = (userToUpdate, email, fullName, username, picture, birthday, addressLineOne, addressLineTwo, telephone) => {
+const userToUpdateUtil = (userToUpdate, email, fullName, username, newUrl, birthday, addressLineOne, addressLineTwo, telephone) => {
     const changedDetail = {}
     changedDetail.id = userToUpdate.dataValues.id
     changedDetail.fullName = fullName
     changedDetail.username = username
-    changedDetail.picture = picture
+    changedDetail.picture = newUrl
     changedDetail.birthday = birthday
     changedDetail.addressLineOne = addressLineOne
     changedDetail.addressLineTwo = addressLineTwo

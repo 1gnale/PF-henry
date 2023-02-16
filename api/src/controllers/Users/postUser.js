@@ -1,15 +1,19 @@
-const { User } = require("../../db")
+const { User } = require("../../db");
+const { cloudinary } = require("../../cloudinary");
 
 const postUser = async (req, res) => {
 
     try {
         const { email, fullName, username, picture, birthday, isAdmin } = req.body;
-        
+        if (picture) {
+            newImg = await cloudinary.uploader.upload(picture)
+        }
+        const newUrl = newImg.url
             const newAdmin = await User.create({
                 email: email,
                 fullName: fullName,
                 username: username,
-                picture: picture,
+                picture: newUrl,
                 birthday: birthday,
                 isAdmin: isAdmin
             })

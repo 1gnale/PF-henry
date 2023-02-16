@@ -1,15 +1,18 @@
-const { Product, Category } = require("../../db")
+const { Product, Category } = require("../../db");
+const { cloudinary } = require("../../cloudinary");
 
 const postProduct = async (req, res) => {
-
+    
     try {
         const { name, height, weight, img, description, price, stock, offert, category } = req.body;
 
+        const uploadedRes = await cloudinary.uploader.upload(img, {public_id: name})
+        
         const newProduct = await Product.create({
             name: name,
             height: height,
             weight: weight,
-            img: img,
+            img: uploadedRes.url,
             description: description,
             price: price,
             stock: stock,
