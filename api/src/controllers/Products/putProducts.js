@@ -8,8 +8,10 @@ const updateProduct = async (req, res) => {
     try {
     const {name, quantity, increaseStock, height, weight, img, description, price, offert, category} = req.body;
     
-    if (img) newImg = await cloudinary.uploader.upload(img, {public_id: name}) 
-    const newUrl  = newImg.url
+    if (img) {
+        var newImg = await cloudinary.uploader.upload(img, {public_id: name}) 
+        var newUrl  = newImg.url
+    } 
     
     const productToUpdate = await Product.findOne({where: {name: name}}) 
     
