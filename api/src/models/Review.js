@@ -13,6 +13,22 @@ module.exports = (sequelize) => {
                 max: 5
             },
             allowNull: false
+        }, 
+        productId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'Product',
+                key: 'id'
+            }
+        },
+        userId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'User',
+                key: 'id'
+            }
         }
     }, {
         freezeTableName: true
