@@ -8,7 +8,7 @@ const getUserOrders = async(req, res) => {
         
         //filtro solo los items comprados por el usuario
         const purchasedItems = await Promise.all(allUserOrders.map(order => 
-            OrderItems.findOne({
+            OrderItems.findAll({
                 where: {
                     orderId: order.id
                 }
