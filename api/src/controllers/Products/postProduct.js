@@ -7,7 +7,13 @@ const postProduct = async (req, res) => {
         const { name, height, weight, img, description, price, stock, offert, category } = req.body;
 
         const uploadedRes = await cloudinary.uploader.upload(img, {public_id: name})
-        
+
+        const modCategories = await category.map(c => {
+            const lowercaseCategory = c.toLowerCase();
+            const capitalizedCategory = lowercaseCategory.charAt(0).toUpperCase() + lowercaseCategory.slice(1);
+            return capitalizedCategory;
+          });
+
         const newProduct = await Product.create({
             name: name,
             height: height,
@@ -18,7 +24,7 @@ const postProduct = async (req, res) => {
             stock: stock,
             offert: offert
         })
-        const dbCategories = await Promise.all(category?.map(c => 
+        const dbCategories = await Promise.all(modCategories?.map(c => 
             Category.findOrCreate({
                 where: {
                     name: c
@@ -26,7 +32,7 @@ const postProduct = async (req, res) => {
             })))
         const tempObj = dbCategories.map(([temp, created]) => temp)
         await newProduct.addCategory(tempObj)
-        return res.status(201).json("New product created correctly")
+        return res.status(201).json("New product created successfully")
     }
     catch (error){
         return res.status(400).json({error: error.message})
