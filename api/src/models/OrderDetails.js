@@ -9,7 +9,6 @@ module.exports = (sequelize) => {
         },
         payPalOrderId: {
             type: DataTypes.STRING,
-            allowNull: false
         },
         userId: {
             type: DataTypes.INTEGER,

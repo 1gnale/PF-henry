@@ -6,17 +6,15 @@ const getUserOrders = async(req, res) => {
         //busco todas las ordenes de compra del usuario
         const allUserOrders = await OrderDetails.findAll({where: {userId: userId}})
         
-        //busco solo los Ids de cada compra
-        const cleanOrders = await allUserOrders.map(o => o.dataValues)
-
         //filtro solo los items comprados por el usuario
-        const purchasedItems = await Promise.all(cleanOrders.map(order => 
+        const purchasedItems = await Promise.all(allUserOrders.map(order => 
             OrderItems.findAll({
                 where: {
                     orderId: order.id
                 }
             })))
-        res.status(200).json({userOrders: cleanOrders, itemPurchasedinUserOrder: purchasedItems})
+            console.log(purchasedItems)
+        res.status(200).json({userOrders: allUserOrders, itemPurchasedinUserOrder: purchasedItems})
 
     } catch(error) {
         res.status(400).json(console.log(error))
