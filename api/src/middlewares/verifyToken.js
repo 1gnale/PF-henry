@@ -8,7 +8,7 @@ const verifyToken = (req, res, next) => {
   const authHeader = req.headers.authorization;
   if (authHeader) {
     const token = authHeader.split(' ')[1];
-    jwt.verify(token, secret_key, (err, user) => {
+    jwt.verify(token, secret_key, { algorithms: ['RS256'] }, (err, user) => {
       if (err) {
         return res.sendStatus(403);
       }
@@ -21,7 +21,7 @@ const verifyToken = (req, res, next) => {
 }
 
 module.exports = {
-    verifyToken
+  verifyToken
 }
 
 
