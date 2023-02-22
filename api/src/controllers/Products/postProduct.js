@@ -21,7 +21,7 @@ const postProduct = async (req, res) => {
       name: name,
       height: height,
       weight: weight,
-      img: uploadedRes.url,
+      img: uploadedRes.secure_url,
       description: description,
       price: price,
       stock: stock,
