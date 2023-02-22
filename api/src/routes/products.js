@@ -11,7 +11,8 @@ const productsRouter = Router();
 
 productsRouter.get('/', getByName, getAllProduct)
 productsRouter.get('/:id', getProductById)
-productsRouter.post('/',verifyToken, validatePostProduct, postProduct)
+// productsRouter.post('/',verifyToken, validatePostProduct, postProduct)
+productsRouter.post('/', validatePostProduct, postProduct)
 productsRouter.put('/', updateProduct)
 
 module.exports = productsRouter;
