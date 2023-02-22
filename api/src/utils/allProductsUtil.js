@@ -18,6 +18,7 @@ const allProducts = async () => {
       weight: e.weight,
       height: e.height,
       offert: e.offert,
+      activeProduct : e.activeProduct,
       category: e.Categories.map((e) => e.name),
     };
   });

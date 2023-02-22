@@ -1,4 +1,4 @@
-const productToUpdateUtil = (name, newStock, height, weight, newUrl, description, price, offert, category) => {
+const productToUpdateUtil = (name, newStock, height, weight, newUrl, description, price, offert, activeProduct) => {
     const changedDetail = {}
     newUrl ? changedDetail.img = newUrl : null
     name ? changedDetail.name = name : null
@@ -8,7 +8,7 @@ const productToUpdateUtil = (name, newStock, height, weight, newUrl, description
     description ? changedDetail.description = description : null
     price ? changedDetail.price = price : null
     offert ? changedDetail.offert = offert : null
-    category ? changedDetail.category = category : null
+    activeProduct !== undefined ? changedDetail.activeProduct = activeProduct : null
 
     return changedDetail
 }

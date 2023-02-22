@@ -3,8 +3,11 @@ const { cloudinary } = require("../../cloudinary");
 
 const postProduct = async (req, res) => {
   try {
-    const { name, height, weight, img, description, price, stock, offert, category } = req.body;
+
+    const { name, height, weight, img, description, price, stock, offert, category, activeProduct } = req.body;
+
     const uploadedRes = await cloudinary.uploader.upload(img, { public_id: name })
+
 
     const modCategories = await category.map(c => {
     const lowercaseCategory = c.toLowerCase();
@@ -13,15 +16,17 @@ const postProduct = async (req, res) => {
     });
 
     const newProduct = await Product.create({
-      name,
-      height,
-      weight,
+      name: name,
+      height: height,
+      weight: weight,
       img: uploadedRes.url,
-      description,
-      price,
-      stock,
-      offert
-    })
+      description: description,
+      price: price,
+      stock: stock,
+      offert: offert,
+      activeProduct: activeProduct
+    });
+
     const dbCategories = await Promise.all(
       modCategories?.map(c =>
         Category.findOrCreate({
