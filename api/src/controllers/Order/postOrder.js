@@ -10,7 +10,7 @@ const postOrder = async(req, res) => {
             userId: user.dataValues.id,
             totalAmount: totalAmount,
             payPalOrderId: paypalId,
-            status: status.toLowerCase()
+            status: status?.toLowerCase()
         })
 
         const orderIdDB = newOrder.dataValues.id
