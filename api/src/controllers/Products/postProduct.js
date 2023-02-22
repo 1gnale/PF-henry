@@ -4,7 +4,7 @@ const fs = require("fs");
 
 const postProduct = async (req, res) => {
   try {
-    const { name, height, weight, description, price, stock, offert, category } = req.body;
+    const { name, height, weight, description, price, stock, offert, category, activeProduct } = req.body;
     const file = req.file;
 
     const uploadedRes = await cloudinary.uploader.upload(fs.readFileSync(file.path), {
@@ -25,7 +25,8 @@ const postProduct = async (req, res) => {
       description: description,
       price: price,
       stock: stock,
-      offert: offert
+      offert: offert,
+      activeProduct: activeProduct
     });
 
     const dbCategories = await Promise.all(
