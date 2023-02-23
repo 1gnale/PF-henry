@@ -1,10 +1,10 @@
-const { Review, User, Product } = require("../../db");
+const { Review } = require("../../db");
 
-const deleteFavorite = async(req, res) => {
-
+const deleteReviews = async(req, res) => {
     try {
        const dbFavorite = await Review.destroy({
-            where :{ rating }
+            where :{ },
+            truncate: true
         })
         res.status(200).json('deleted');
       } catch (error) {
@@ -13,5 +13,5 @@ const deleteFavorite = async(req, res) => {
 }
 
 module.exports= {
-    deleteFavorite
+    deleteReviews
 }
